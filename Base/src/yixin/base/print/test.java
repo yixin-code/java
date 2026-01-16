@@ -16,6 +16,6 @@ public class test {
         System.out.print("阿泰勒角落\t");
         System.out.print("2\t\t");
         System.out.print("50\t\t");
-        System.out.println("90 ");
+        System.out.println("90");
     }
 }

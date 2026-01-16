@@ -1,0 +1,51 @@
+" 基础设置
+set scrolloff=10            " 保持光标上下方各 10 行的间距，避免视野紧张
+set linenumber              " 显示行号
+set showmode                " 显示当前 Vim 模式（Normal/Insert 等）
+set showcmd                 " 显示正在输入的命令
+
+set smartcase               " 搜索时智能大小写（有大写时区分大小写）
+set incsearch               " 搜索时实时跳转到匹配项
+set hlsearch                " 搜索后高亮所有匹配项
+set visualbell              " 出错时使用视觉提示，而非响铃
+set cursorline              " 高亮显示光标所在行
+set number relativenumber   " 显示相对行号，当前行为绝对行号
+set highlightedyank         " 复制时高亮显示被复制的文本
+set keep-english-in-normal  " 返回 normal 模式时自动切换为英文输入法
+
+" 使用系统剪贴板
+set clipboard+=unnamed      " 与系统剪贴板共享内容（如复制粘贴）
+set clipboard=unnamedplus   " 可以复制粘贴
+
+" 设置 leader 键为空格
+let mapleader = " "
+
+” 键盘映射
+" 插入模式下，按 jj 回到noremap模式下
+inoremap jj <ESC>
+" 默认 dd 删除不保存到剪贴板，防止污染剪贴板
+nnoremap x "_x
+nnoremap X "_X
+nnoremap d "_d
+nnoremap D "_D
+vnoremap d "_d
+" 普通/可是模式下crtl+j/k 快速跳转5行
+nnoremap <C-j> 5j
+nnoremap <C-k> 5k
+vnoremap <C-j> 5j
+vnoremap <C-k> 5k
+" 插入模式下按crtl+j向后移动一个字符
+inoremap <silent> <C-j> <Right>
+" 插入模式下crtl+k行尾添加;
+inoremap <silent> <C-k> <C-o>A <Esc>a
+" 插入模式下crtl+l行尾添加;
+inoremap <silent> <C-l> <C-o>A;<Esc>a
+" 普通模式下crtl+l行尾
+nnoremap <silent> <C-l> $
+" 普通模式下crtl+h行尾
+nnoremap <silent> <C-h> 0
+" 普通和插入模式下alt+q关闭当前标签页
+nnoremap <silent> <A-q> :wq<CR>
+inoremap <silent> <A-q> <Esc>:wq<CR>
+" 插入模式下crtl+o下一行
+inoremap <silent> <C-o> <Esc>o
